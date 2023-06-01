@@ -120,6 +120,9 @@ def _to_json(resp):
     :return: Parsed JSON.
     :raises: InvalidJSONError If JSON parsing failed.
     """
+    if isinstance(resp, dict):
+        return resp
+
     try:
         return resp.json()
     except ValueError as e:
